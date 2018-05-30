@@ -1,0 +1,30 @@
+{% extends '_base.html' %}
+{% block content %}
+<div class="container">
+<div class="row" style="margin-top: 15px">
+  <div class="col-md-3">
+      <h2 style="text-align: right;margin-bottom: 0px;color: darkslategray;">TWITTS BY</h2><br/>
+    <h1 style="text-align: right;font-weight: 500;margin-top: -10px;">{{ user.username }}</h1>
+      <h6 style="text-align: right;font-weight: 500;margin-top: -10px;">{{ user.motto }}</h6>
+      <img src="{{ user.image.url }}" alt="" style="width: 90%;height: 90%">
+  </div>
+  <div class="col-md-9" style="margin-top: 20px">
+    <div class="row">
+    {% for tweet in tweets %}
+    <div class="col-xs-12" id="content-main">
+        <div style="position: relative;background-color: snow; padding: 2px;min-height: 150px;">
+            <h3 style="margin: 18px">{{ tweet.text }}</h3>
+            <h4 style="position: absolute;bottom: 0; right: 0;font-style: italic;text-align: right;padding-right: 10px">- {{ tweet.user.username }}</h4>
+        </div>
+        <br/>
+
+
+    </div>
+    {% endfor %}
+    </div>
+  </div>
+  <div class="col-md-3">
+  </div>
+</div>
+
+{% endblock content %}

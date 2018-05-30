@@ -1,0 +1,54 @@
+{% extends '_base.html' %}
+{% block content %}
+<div class="container">
+<div class="row" style="margin-top: 15px">
+  <div class="col-md-3">
+      <h2 style="text-align: right;margin-bottom: 0px;color: darkslategray;">TWITT BY</h2><br/>
+    <h1 style="text-align: right;font-weight: 500;margin-top: -10px;">{{ tweet.user.username }}</h1>
+  </div>
+  <div class="col-md-9" style="margin-top: 20px">
+    <div class="row">
+    <div class="col-xs-12" id="content-main">
+    <div style="position: relative;background-color: snow; padding: 2px;min-height: 150px;">
+        <h3 style="margin: 18px">{{ tweet.text }}</h3>
+        <h4 style="position: absolute;bottom: 0; right: 0;font-style: italic;text-align: right;padding-right: 10px">- {{ tweet.user.username }}</h4>
+    </div>
+    <br/>
+
+
+
+
+    </div>
+    </div>
+  </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+        <div class="col-xs-12" id="content-main"">
+            <h2 style="margin: 18px">Comments</h2>
+            {% for comment in comments %}
+
+                <div style="position: relative;background-color: snow; margin: 18px;min-height: 90px;">
+                    <p style="padding-top: 15px;padding-left: 10px;">{{ comment.text }}</p>
+                    <h4 style="position: absolute;bottom: 0; right: 0;font-style: italic;text-align: right;padding-right: 10px">commented by: {{ comment.author }}</h4>
+                </div>
+                <br/>
+            {% endfor %}
+            <h3 style="margin: 18px">Add new comment</h3>
+            <div style="position: relative;background-color: snow; margin: 18px;min-height: 130px;">
+                <form action="{% url 'addcomment' tweet.id %}" method="post" class="form-control" >
+                    {% csrf_token %}
+                    {{ comment_form.as_p }}
+                    <input type="Submit" value="Submit"/>
+                </form>
+            </div>
+        </div>
+        </div>
+
+
+    </div>
+  <div class="col-md-3">
+  </div>
+</div>
+</div>
+{% endblock content %}

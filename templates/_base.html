@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      {% load static %}
+      <meta charset="utf-8">
+      <title>Tweeter</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+      <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,200" rel="stylesheet" type="text/css">
+      <link href="/static/Tweeter_SPJA/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="/static/Tweeter_SPJA/css/style.css" type="text/css">
+      <link rel="stylesheet" href="/static/Tweeter_SPJA/css/stream_twitter.css" type="text/css">
+  </head>
+<body>
+    {% block nav %}
+      {% include "_nav.html" %}
+    {% endblock nav %}
+    {% block content %}
+    {% endblock content %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="/static/Tweeter_SPJA/js/bootstrap.min.js"></script>
+    {% block script %}
+    {% endblock script %}
+
+</body>

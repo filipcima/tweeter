@@ -1,0 +1,24 @@
+{% extends '_base.html' %}
+{% block content %}
+<div class="container">
+    <div class="welcome">
+    <h1 class="welcome-title">Discover new users!</h1>
+    </div>
+
+    <div class="col-xs-12" id="content-main" style="display: flex;margin-top: 30px;justify-content: space-between">
+
+        {%for user in users %}
+            <div style="position: relative;background-color: snow; padding: 2px;height: 250px;width: 250px;margin:3px">
+                <h3 style="margin: 18px;text-align: center"><a href="/user/{{ user.username }}">{{ user.username }}</a></h3>
+                <h5 style="text-align: center">{{ user.motto }}</h5>
+                <img src="{{ user.image.url }}" alt="" style="max-width: 230px;max-height: 90px; width: auto; height: auto;display: block; margin: 0 auto;">
+                {{ user.po}}
+            </div>
+                <br/>
+        {% endfor %}
+
+
+    </div>
+
+</div>
+{% endblock content %}

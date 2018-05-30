@@ -1,0 +1,25 @@
+{% extends '_base.html' %}
+{% block content %}
+<div class="container">
+    <div class="welcome">
+    <h1 class="welcome-title">Trending h#shtags</h1>
+    </div>
+
+    <div class="col-xs-12" id="content-main" style="display: flex;margin-top: 30px;justify-content: space-between">
+
+        {%for hashtag in hashtags %}
+            <div style="position: relative;background-color: snow; padding: 2px;height: 250px;width: 250px;margin:3px">
+            <a href="/hashtag/{{ hashtag.name }}" style="text-decoration: none">
+
+                <h2 style="text-align: center">{{ hashtag.name }}</h2>
+                <h1 style="text-align: center;font-size: 78px">{{ hashtag.occurences}}</h1>
+            </a>
+            </div>
+                <br/>
+        {% endfor %}
+
+
+    </div>
+
+</div>
+{% endblock content %}

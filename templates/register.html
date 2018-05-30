@@ -1,0 +1,31 @@
+{% extends '_base.html' %}
+{% block content %}
+<div class="container">
+    <div class="welcome">
+    <h1 class="welcome-title">Register now</h1>
+    </div>
+
+
+    <div class="col-md-3" style="margin-top: 20px"></div>
+    <div class="col-md-6" style="margin-top: 20px">
+        <div style="position: relative;background-color: snow;min-height: 300px;">
+            <form action="{% url 'registernewuser' %}" method="post" class="form-control" enctype="multipart/form-data" >
+                {% csrf_token %}
+                {{ register_form.errors }}
+                {{ register_form.as_p }}
+                <input type="Submit" value="Submit"/>
+            </form>
+        </div>
+
+    </div>
+    <div class="col-md-3" style="margin-top: 20px"></div>
+
+
+
+
+        <br><br>
+
+
+
+</div>
+{% endblock content %}

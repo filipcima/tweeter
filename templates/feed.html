@@ -1,0 +1,36 @@
+{% extends '_base.html' %}
+{% block content %}
+<div class="container">
+    <div class="welcome">
+    <h1 class="welcome-title">Hello!</h1>
+    </div>
+
+    <div class="col-xs-12" id="content-main">
+
+         <h3 style="margin: 18px">Add new tweet</h3>
+            <div style="position: relative;background-color: snow;min-height: 140px;">
+                <form action="{% url 'addtweet' %}" method="post" class="form-control" >
+                    {% csrf_token %}
+                    {{ add_tweet_form.as_p }}
+                    <input type="Submit" value="Submit"/>
+                </form>
+            </div>
+        <br><br>
+
+         <h3 style="margin: 18px">Feed</h3>
+
+        {%for tweet in tweets %}
+            <div style="position: relative;background-color: snow; padding: 2px;min-height: 130px;">
+                <h3 style="margin: 18px">{{ tweet.text }}</h3>
+                <h5 style="position: absolute;bottom: 20px; left: 0;text-align: left;padding-left: 18px"><a href="/tweet/{{ tweet.id }}"></a></h5>
+                <h5 style="position: absolute;bottom: 0; left: 0;text-align: left;padding-left: 18px"><a href="/tweet/{{ tweet.id }}">COMMENTS</a></h5>
+                <h4 style="position: absolute;bottom: 0; right: 0;font-style: italic;text-align: right;padding-right: 10px">- <a href="/user/{{ tweet.user.username }}">{{ tweet.user.username }}</a></h4>
+            </div>
+                <br/>
+        {% endfor %}
+
+
+    </div>
+
+</div>
+{% endblock content %}
