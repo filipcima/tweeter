@@ -1,4 +1,4 @@
-# tweeter
+# Tweeter
 Simple twitter-like client created using Django framework
 
 ## Install & Run
